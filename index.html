@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#385343">
+  <meta name="description" content="Mes recettes personnelles pour choisir les prochains repas et préparer les courses.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>À table · Mes recettes</title>
+</head>
+<body>
+  <header class="site-head">
+    <button class="brand" data-view="suggestions" aria-label="Retour aux suggestions">
+      <span class="brand-seed" aria-hidden="true"></span>
+      <span>À table</span>
+    </button>
+    <nav class="desktop-nav" aria-label="Navigation principale">
+      <button class="nav-link active" data-view="suggestions">Suggestions</button>
+      <button class="nav-link" data-view="recipes">Mes recettes</button>
+      <button class="nav-link" data-view="meals">Mes repas <span class="nav-count" data-meal-count>0</span></button>
+      <button class="nav-link" data-view="shopping">Courses</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="view active" id="suggestions-view" aria-labelledby="suggestions-title">
+      <div class="suggestion-hero">
+        <p class="eyebrow">De quoi as-tu envie&nbsp;?</p>
+        <h1 id="suggestions-title">Choisis ton humeur de table.</h1>
+        <p class="intro-copy">Je pioche dans tes recettes complètes. Garde celles qui te tentent, puis transforme-les en liste de courses.</p>
+        <div class="mood-picker" role="group" aria-label="Envie du moment">
+          <button class="mood active" data-mood="frais"><span class="mood-mark mood-fresh"></span>Frais</button>
+          <button class="mood" data-mood="reconfortant"><span class="mood-mark mood-comfort"></span>Réconfortant</button>
+          <button class="mood" data-mood="rapide"><span class="mood-mark mood-fast"></span>Rapide</button>
+          <button class="mood" data-mood="leger"><span class="mood-mark mood-light"></span>Léger</button>
+          <button class="mood" data-mood="genereux"><span class="mood-mark mood-generous"></span>Généreux</button>
+        </div>
+      </div>
+
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Ta sélection du moment</p>
+          <h2 id="mood-title">Quelque chose de frais</h2>
+        </div>
+        <button class="text-button" id="shuffle-button">Repiocher <span aria-hidden="true">↻</span></button>
+      </div>
+      <div class="recipe-grid suggestion-grid" id="suggestion-list"></div>
+    </section>
+
+    <section class="view" id="recipes-view" aria-labelledby="recipes-title">
+      <div class="page-title">
+        <p class="eyebrow">Ta collection</p>
+        <h1 id="recipes-title">Toutes tes recettes.</h1>
+        <p class="intro-copy">Les recettes fiables, les bases à compléter et les idées que tu veux encore explorer.</p>
+      </div>
+      <div class="collection-tabs" role="tablist" aria-label="Filtrer la collection">
+        <button class="collection-tab active" data-filter="all">Tout</button>
+        <button class="collection-tab" data-filter="complete">Recettes complètes</button>
+        <button class="collection-tab" data-filter="base">À improviser</button>
+        <button class="collection-tab" data-filter="ideas">Idées</button>
+      </div>
+      <div class="recipe-grid" id="collection-list"></div>
+      <div class="idea-sections" id="idea-sections" hidden>
+        <section class="idea-block">
+          <p class="eyebrow">À transformer en recettes</p>
+          <h2>Idées de repas</h2>
+          <div class="idea-list" id="meal-ideas"></div>
+        </section>
+        <section class="idea-block indian">
+          <p class="eyebrow">À explorer</p>
+          <h2>Inspirations indiennes</h2>
+          <div class="idea-list" id="indian-ideas"></div>
+        </section>
+      </div>
+    </section>
+
+    <section class="view" id="meals-view" aria-labelledby="meals-title">
+      <div class="page-title compact-title">
+        <p class="eyebrow">Ton menu libre</p>
+        <h1 id="meals-title">Les repas que tu as choisis.</h1>
+        <p class="intro-copy">Garde seulement ce qui te donne envie. Tu peux modifier cette sélection à tout moment.</p>
+      </div>
+      <div id="selected-meals"></div>
+    </section>
+
+    <section class="view" id="shopping-view" aria-labelledby="shopping-title">
+      <div class="shopping-head">
+        <div>
+          <p class="eyebrow">Prête à emporter</p>
+          <h1 id="shopping-title">Ta liste de courses.</h1>
+          <p class="intro-copy">Les ingrédients de tes repas sont regroupés. Coche ce que tu as déjà ou ce que tu viens de trouver.</p>
+        </div>
+        <button class="secondary-button" id="clear-checks">Tout décocher</button>
+      </div>
+      <div id="shopping-content"></div>
+    </section>
+  </main>
+
+  <nav class="mobile-nav" aria-label="Navigation mobile">
+    <button class="mobile-link active" data-view="suggestions"><span class="nav-icon">✦</span><span>Idées</span></button>
+    <button class="mobile-link" data-view="recipes"><span class="nav-icon">▦</span><span>Recettes</span></button>
+    <button class="mobile-link" data-view="meals"><span class="nav-icon">○</span><span>Repas</span><span class="mobile-count" data-meal-count>0</span></button>
+    <button class="mobile-link" data-view="shopping"><span class="nav-icon">✓</span><span>Courses</span></button>
+  </nav>
+
+  <dialog id="recipe-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-shell">
+      <button class="dialog-close" id="dialog-close" aria-label="Fermer">×</button>
+      <div id="dialog-content"></div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
