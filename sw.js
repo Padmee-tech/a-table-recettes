@@ -1,4 +1,4 @@
-const CACHE = "a-table-v3";
+const CACHE = "a-table-v4";
 const ASSETS = ["./", "./index.html", "./styles.css", "./data.js", "./app.js", "./icon.svg", "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png", "./manifest.webmanifest"];
 
 self.addEventListener("install", event => {

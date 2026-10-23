@@ -105,6 +105,12 @@ window.RECIPES = [
     description: "Lentilles, carottes au sumac, roquette et grenade avec une vinaigrette au tahin.",
     ingredients: [["200 g", "lentilles vertes", "Épicerie"], ["500 g", "carottes", "Fruits et légumes"], ["60 ml", "huile d’olive", "Placard"], ["1/2 c. à café", "sumac", "Placard"], ["50 g", "roquette", "Fruits et légumes"], ["1/2", "grenade", "Fruits et légumes"], ["2 c. à soupe", "vinaigre balsamique", "Placard"], ["1/2 c. à soupe", "moutarde", "Placard"], ["1 gousse", "ail", "Fruits et légumes"], ["1/2 c. à soupe", "sirop d’érable", "Épicerie"], ["1 c. à soupe", "tahin", "Épicerie"]],
     steps: [], note: "À compléter : cuisson des lentilles, cuisson des carottes et montage final."
+  },
+  {
+    id: "pangasius-four", name: "Pangasius au four", status: "base", moods: ["leger", "genereux"], oven: true, time: "À préciser", servings: "À improviser", color: "leaf",
+    description: "Pangasius rôti avec tomates, persil et échalotes, servi avec des épinards et des pommes de terre.",
+    ingredients: [["", "pangasius", "Produits frais"], ["", "tomates", "Fruits et légumes"], ["", "persil", "Fruits et légumes"], ["", "échalotes", "Fruits et légumes"], ["", "épinards", "Fruits et légumes"], ["", "pommes de terre", "Fruits et légumes"]],
+    steps: [], note: "À compléter : proportions, température, durée de cuisson et préparation."
   }
 ];
 
@@ -112,7 +118,6 @@ window.IDEAS = [
   "Couscous avec pomelo, feta, noix, menthe et raisins",
   "Couscous amélioré avec aneth, yaourt, citron, ail, feta, pistache, cumin et concombre",
   "Pain pas à pas, à demander à papa, professeur de boulangerie",
-  "Pangasius au four avec tomates, persil et échalotes, servi avec épinards et pommes de terre",
   "Velouté d’endives et patates douces", "Hachis parmentier", "Coquilles géantes à la mozzarella farcies",
   "Chicons au gratin", "Crêpes béchamel", "Aubergines farcies", "Chou navet avec feta, pignons de pin, huile et vinaigre"
 ];

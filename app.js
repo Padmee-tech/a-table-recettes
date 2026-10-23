@@ -1,6 +1,6 @@
 (() => {
   const recipes = window.RECIPES;
-  const completeRecipes = recipes.filter(recipe => recipe.status === "complete");
+  const completeRecipes = recipes.filter(recipe => recipe.status === "complete" && !recipe.oven);
   const moodLabels = {
     frais: "Quelque chose de frais",
     reconfortant: "Un plat qui réconforte",
@@ -92,7 +92,9 @@
   };
 
   const renderCollection = (filter = document.querySelector(".collection-tab.active")?.dataset.filter || "all") => {
-    const visible = filter === "all" ? recipes : recipes.filter(recipe => filter === "oven" ? recipe.oven : recipe.status === filter);
+    const visible = filter === "oven"
+      ? recipes.filter(recipe => recipe.oven)
+      : recipes.filter(recipe => !recipe.oven && (filter === "all" || recipe.status === filter));
     collectionList.hidden = filter === "ideas";
     collectionList.innerHTML = visible.map(cardTemplate).join("");
     document.querySelector("#idea-sections").hidden = !["all", "ideas"].includes(filter);
