@@ -46,7 +46,7 @@ window.RECIPES = [
     ]
   },
   {
-    id: "caviar-aubergines", name: "Caviar d’aubergines", status: "complete", moods: ["leger", "frais", "rapide"], time: "50 min", servings: "À partager",
+    id: "caviar-aubergines", name: "Caviar d’aubergines", status: "complete", moods: ["leger", "frais", "rapide"], oven: true, time: "50 min", servings: "À partager",
     description: "Une purée d’aubergines rôties, douce et parfumée à l’ail et au thym.", color: "aubergine",
     ingredients: [["", "aubergines", "Fruits et légumes"], ["", "huile d’olive", "Placard"], ["", "ail", "Fruits et légumes"], ["", "thym", "Placard"], ["", "sel et poivre", "Placard"]],
     steps: ["Couper les aubergines en deux en gardant la peau.", "Inciser la chair en diagonale.", "Verser un peu d’huile d’olive sur les aubergines.", "Les passer au four environ 40 à 45 minutes.", "Récupérer la chair devenue molle avec une cuillère.", "Mélanger avec de l’ail, de l’huile d’olive, du thym, du sel et du poivre.", "Mixer jusqu’à obtenir une purée bien lisse."],
@@ -65,7 +65,7 @@ window.RECIPES = [
     steps: ["Cuire le quinoa selon les indications du paquet, ou environ 12 minutes.", "Faire chauffer 15 ml d’huile d’olive dans une poêle.", "Ajouter l’échalote, le poireau et le miel, puis cuire 10 minutes.", "Faire griller les pignons à sec dans une poêle.", "Mélanger 45 ml d’huile d’olive, l’ail, le jus du citron, le sel et le poivre.", "Servir le quinoa avec les poireaux au miel, arroser de vinaigrette et terminer par les pignons grillés."]
   },
   {
-    id: "gratin-legumes", name: "Gratin chou-fleur, brocolis et patates douces", status: "complete", moods: ["reconfortant", "genereux"], time: "1 h", servings: "Plat complet",
+    id: "gratin-legumes", name: "Gratin chou-fleur, brocolis et patates douces", status: "complete", moods: ["reconfortant", "genereux"], oven: true, time: "1 h", servings: "Plat complet",
     description: "Un gratin de légumes à la béchamel végétale, couvert de graines ou de noix.", color: "cream",
     ingredients: [["150 g", "pommes de terre", "Fruits et légumes"], ["200 g", "chou-fleur", "Fruits et légumes"], ["200 g", "brocolis", "Fruits et légumes"], ["200 g", "patates douces", "Fruits et légumes"], ["650 g", "lait végétal", "Produits frais"], ["3 c. à soupe", "fécule de maïs", "Épicerie"], ["1 pincée", "muscade", "Placard"], ["", "noix, graines de sésame ou pignons", "Épicerie"], ["", "sel et poivre", "Placard"]],
     steps: ["Éplucher les pommes de terre et les patates douces, puis les couper en cubes.", "Couper les bouts abîmés du chou-fleur et des brocolis, puis les rincer.", "Porter une casserole d’eau salée à ébullition.", "Cuire les légumes environ 25 minutes, puis égoutter.", "Préchauffer le four à 180 °C.", "Verser le lait, la fécule, la muscade, le sel et le poivre dans une casserole.", "Délayer la fécule dans le lait, puis porter à ébullition en mélangeant jusqu’à épaississement.", "Verser une fine couche de béchamel dans un plat.", "Ajouter les légumes, puis couvrir avec le reste de béchamel.", "Saupoudrer de noix concassées, de graines de sésame ou de pignons de pin.", "Enfourner 25 à 30 minutes, jusqu’à ce que le dessus gratine."]
@@ -95,7 +95,7 @@ window.RECIPES = [
     steps: [], note: "À compléter : proportions, ordre de cuisson et sauce.", source: "https://www.youtube.com/watch?v=maEytoU4BOk"
   },
   {
-    id: "granola", name: "Granola", status: "base", moods: ["rapide", "genereux"], time: "À préciser", servings: "À préparer d’avance", color: "ochre",
+    id: "granola", name: "Granola", status: "base", moods: ["rapide", "genereux"], oven: true, time: "À préciser", servings: "À préparer d’avance", color: "ochre",
     description: "Avoine, miel, romarin, orange et un mélange généreux de noix et graines.",
     ingredients: [["", "flocons d’avoine complets", "Épicerie"], ["", "huile d’olive", "Placard"], ["", "miel", "Épicerie"], ["", "romarin", "Fruits et légumes"], ["", "orange", "Fruits et légumes"], ["", "cannelle", "Placard"], ["", "noix", "Épicerie"], ["", "graines de courge", "Épicerie"], ["", "noisettes", "Épicerie"]],
     steps: ["Mélanger les flocons d’avoine avec le miel fondu dans l’huile d’olive.", "Ajouter le romarin, le zeste d’orange et la cannelle.", "Cuire au four à température moyenne-basse.", "Sortir et mélanger toutes les 15 minutes.", "Ajouter les noix, graines de courge et noisettes toastées."], note: "À compléter : température, temps total et proportions."

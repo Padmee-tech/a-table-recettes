@@ -81,7 +81,7 @@
         <div class="card-copy">
           <h3>${escapeHtml(recipe.name)}</h3>
           <p>${escapeHtml(recipe.description)}</p>
-          <div class="card-meta"><span>${escapeHtml(recipe.time)}</span><span>${escapeHtml(recipe.servings)}</span></div>
+          <div class="card-meta"><span>${escapeHtml(recipe.time)}</span><span>${escapeHtml(recipe.servings)}</span>${recipe.oven ? "<span>Four</span>" : ""}</div>
         </div>
         <button class="card-action ${selected ? "selected" : ""}" data-toggle="${recipe.id}" aria-label="${selected ? "Retirer" : "Ajouter"} ${escapeHtml(recipe.name)}">${selected ? "✓" : "+"}</button>
       </article>`;
@@ -92,7 +92,7 @@
   };
 
   const renderCollection = (filter = document.querySelector(".collection-tab.active")?.dataset.filter || "all") => {
-    const visible = filter === "all" ? recipes : recipes.filter(recipe => recipe.status === filter);
+    const visible = filter === "all" ? recipes : recipes.filter(recipe => filter === "oven" ? recipe.oven : recipe.status === filter);
     collectionList.hidden = filter === "ideas";
     collectionList.innerHTML = visible.map(cardTemplate).join("");
     document.querySelector("#idea-sections").hidden = !["all", "ideas"].includes(filter);
@@ -232,7 +232,7 @@
         <p class="eyebrow">${recipe.status === "complete" ? "Recette complète" : "Base à improviser"}</p>
         <h2 id="dialog-title">${escapeHtml(recipe.name)}</h2>
         <p class="dialog-description">${escapeHtml(recipe.description)}</p>
-        <div class="dialog-meta"><span>${escapeHtml(recipe.time)}</span><span>${escapeHtml(recipe.servings)}</span>${recipe.moods.map(mood => `<span>${escapeHtml(mood === "reconfortant" ? "réconfortant" : mood === "leger" ? "léger" : mood)}</span>`).join("")}</div>
+        <div class="dialog-meta"><span>${escapeHtml(recipe.time)}</span><span>${escapeHtml(recipe.servings)}</span>${recipe.oven ? "<span>Four nécessaire</span>" : ""}${recipe.moods.map(mood => `<span>${escapeHtml(mood === "reconfortant" ? "réconfortant" : mood === "leger" ? "léger" : mood)}</span>`).join("")}</div>
         <button class="primary-button dialog-add" data-toggle="${recipe.id}">${selected ? "Retirer de mes repas" : "Ajouter à mes repas"}</button>
         <div class="recipe-columns">
           <section>
